@@ -40,11 +40,6 @@ This project was created by:
 Students of the **Faculty of Information communication and Technology**,  
 **Kabul University**
 
-## 📄 License
-
-This project is open for educational and non-commercial use. Proper credit is appreciated if reused or referenced.
-Here is a **clean, professional, and well-structured GitHub README** for your project that uses **SQL Server, HTML, CSS, JavaScript, and PHP**.
-You can copy–paste directly into GitHub.
 
 ---
 
