@@ -1,0 +1,641 @@
+/* =======================================
+   🌐 GLOBAL RESET & FONT
+======================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+@font-face {
+  font-family: 'myfont';
+  src: url('myfont/Arvo-Regular.ttf') format('truetype');
+}
+
+/* =======================================
+   🟦 BODY + BACKGROUND
+======================================= */
+body {
+  background: linear-gradient(135deg, #141428, #1f1f3a);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+/* =======================================
+   🟧 HEADER + NAVIGATION
+======================================= */
+.header {
+  position: relative;
+  width: 98%;
+  margin: 10px auto;
+  height: 500px;
+  border-radius: 10px;
+  background: url('imge/4992cda08de60d78fddecd7872dc877b.jpg') no-repeat center/cover;
+  text-align: center;
+  color: white;
+  padding-top: 35px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+.header h1 {
+  font-size: 60px;
+  margin-top: 90px;
+  color: #ff7500;
+  transition: all 0.3s ease;
+}
+
+.header h1 span {
+  color: orange;
+}
+
+.header h1:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.nav-style {
+  margin: 30px auto 0 auto;
+  width: 450px;
+  height: 55px;
+  line-height: 55px;
+  color: #f9811f;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 20px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: rgb(255,164,66);
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #28e971;
+  transform: translateX(-10px) rotate(180deg);
+}
+
+/* =======================================
+   🟦 DESC BOX
+======================================= */
+.desc {
+  margin: 30px auto;
+  width: 450px;
+  height: 55px;
+  line-height: 55px;
+  color: #f3dbdb;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 20px;
+  border: 1px solid white;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* =======================================
+   🟧 LOGIN BUTTON
+======================================= */
+.login-btn {
+  padding: 10px;
+  width: 100px;
+  height: 50px;
+  background-color: #fd2a04;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 20px;
+  position: absolute;
+  right: 30px;
+  top: 100px;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: scale(1.05);
+  background-color: #ff6600;
+  cursor: pointer;
+}
+
+/* =======================================
+   📚 BOOK ITEM
+======================================= */
+.book {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+}
+
+.book-item {
+  width: 300px;
+  height: 580px;
+  background: #fff;
+  color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  cursor: pointer;
+}
+
+.book-pic {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.book-name {
+  font-size: 25px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.book-intro {
+  padding: 20px;
+  text-align: justify;
+  font-size: 14px;
+  color: #555;
+}
+
+/* =======================================
+   🏛 LIBRARY SECTION
+======================================= */
+.library {
+  width: 92%;
+  margin: 35px auto;
+  padding-top: 100px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #000;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.library img {
+  width: 90%;
+  height: 300px;
+  object-fit: cover;
+  margin: 20px auto;
+}
+
+.library:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+
+/* =======================================
+   👤 MEMBER SECTION
+======================================= */
+.member {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.member h2 {
+  margin-bottom: 1.5rem;
+}
+
+.member-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.member-item {
+  background: #fff;
+  border-radius: 10px;
+  max-width: 300px;
+  flex: 1 1 250px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.member-item:hover {
+  transform: translateY(-8px);
+}
+
+.member-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 1rem;
+}
+
+.member-name {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.member-intro {
+  padding: 1rem;
+  color: #444;
+  text-align: justify;
+}
+
+/* =======================================
+   🟦 ABOUT SECTION
+======================================= */
+.about {
+  min-height: 700px;
+  padding: 50px 20px;
+  background-image: url('imge/fa6137a49bf8079fa93ed180fb17b9a5.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+  background-color: #514f4f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  width: 600px;
+  height: auto;
+  border-radius: 10%;
+  background-color: rgba(226, 225, 225, 0.178);
+  text-align: center;
+  padding: 80px 100px;
+  color: #ff6600;
+  font-weight: bold;
+  backdrop-filter: blur(4px);
+}
+
+.circle h2 {
+  font-size: 35px;
+  color: #ff6600;
+}
+
+.circle p {
+  margin-top: 50px;
+  text-align: justify;
+  line-height: 1.7;
+  color: #fff;
+}
+
+/* ---------- Responsive Design ---------- */
+
+/* برای تبلت‌ها */
+@media (max-width: 992px) {
+  .circle {
+    width: 80%;
+    padding: 60px 60px;
+  }
+
+  .circle h2 {
+    font-size: 28px;
+  }
+
+  .circle p {
+    margin-top: 40px;
+    font-size: 15px;
+  }
+}
+
+/* برای موبایل‌ها */
+@media (max-width: 600px) {
+  .about {
+    padding: 30px 10px;
+  }
+
+  .circle {
+    width: 95%;
+    padding: 40px 25px;
+    border-radius: 20px;
+  }
+
+  .circle h2 {
+    font-size: 24px;
+  }
+
+  .circle p {
+    margin-top: 30px;
+    font-size: 14px;
+  }
+}
+
+
+/* =======================================
+   🔒 LOGIN PAGE REFINED
+======================================= */
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #141428, #1f1f3a);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  position: absolute;
+
+}
+
+.login-container {
+  background: rgba(34, 34, 59, 0.95);
+  padding: 40px;
+  border-radius: 15px;
+  width: 380px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.login-container:hover {
+  transform: translateY(-5px);
+}
+
+.login-container h2 {
+  color: #ffc107;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-box input,
+.form-box select {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #3b3b56;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-box input:focus,
+.form-box select:focus {
+  border: 2px solid #ffc107;
+  background-color: #353554;
+}
+
+.btn-primary {
+  background: #ffc107;
+  color: #111;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #ffb300;
+  transform: translateY(-3px);
+}
+
+.form-box p {
+  margin-top: 10px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.form-box a {
+  color: #ffc107;
+  text-decoration: none;
+}
+
+.form-box a:hover {
+  text-decoration: underline;
+}
+
+/* =======================================
+   📞 CONTACT SECTION REFINED
+======================================= */
+.Contact {
+  width: 95%;
+  max-width: 1200px;
+  margin: 60px auto;
+  background-color: #111;
+  color: #fff;
+  border-radius: 20px;
+  padding: 100px 30px 60px 30px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+}
+
+.Contact h2 {
+  width: 180px;
+  height: 60px;
+  line-height: 60px;
+  background-color: #16a34a;
+  color: #fff;
+  font-weight: bold;
+  font-size: 22px;
+  border-radius: 10px;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.Contact p,
+.Contact .info {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+.Contact .info span {
+  display: inline-block;
+  background: #374151;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin: 5px;
+  font-weight: bold;
+  color: #d1d5db;
+  transition: all 0.3s ease;
+}
+
+.Contact .info span:hover {
+  background-color: #16a34a;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.Contact .social {
+  margin-top: 25px;
+}
+
+.Contact .social img {
+  width: 45px;
+  height: 45px;
+  margin: 0 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.Contact .social img:hover {
+  transform: scale(1.2);
+}
+
+.Contact .copy {
+  margin-top: 30px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* ---------------- Responsive Design ---------------- */
+
+/* برای لپ‌تاپ و تبلت‌های بزرگ */
+@media (max-width: 1024px) {
+  .Contact {
+    padding: 90px 20px 50px 20px;
+  }
+
+  .Contact h2 {
+    width: 160px;
+    font-size: 20px;
+  }
+
+  .Contact .info span {
+    padding: 8px 12px;
+    font-size: 15px;
+  }
+}
+
+/* برای تبلت‌ها */
+@media (max-width: 768px) {
+  .Contact {
+    padding: 80px 15px 40px 15px;
+  }
+
+  .Contact h2 {
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+  }
+
+  .Contact p {
+    font-size: 15px;
+  }
+
+  .Contact .social img {
+    width: 40px;
+    height: 40px;
+    margin: 0 8px;
+  }
+}
+
+/* برای موبایل‌ها */
+@media (max-width: 480px) {
+  .Contact {
+    padding: 70px 10px 30px 10px;
+    border-radius: 15px;
+  }
+
+  .Contact h2 {
+    width: 130px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 16px;
+    top: 25px;
+  }
+
+  .Contact p, 
+  .Contact .info {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .Contact .info span {
+    display: block;
+    width: 90%;
+    margin: 8px auto;
+  }
+
+  .Contact .social img {
+    width: 35px;
+    height: 35px;
+    margin: 0 6px;
+  }
+
+  .Contact .copy {
+    font-size: 12px;
+  }
+}
+
+/* =======================================
+   📱 RESPONSIVE FIXES
+======================================= */
+@media (max-width: 768px) {
+  .login-container { width: 90%; padding: 30px; }
+  .Contact { padding: 80px 20px 40px 20px; }
+  .Contact h2 { width: 150px; font-size: 20px; }
+}
+
+@media (max-width: 480px) {
+  .login-container { width: 95%; padding: 25px; }
+  .Contact { padding: 60px 15px 30px 15px; }
+  .Contact h2 { width: 130px; font-size: 18px; }
+}
+
+/* =======================================
+   📱 RESPONSIVE
+======================================= */
+@media (max-width: 992px) {
+  .book-item, .member-item { flex: 1 1 45%; }
+  .circle { width: 400px; height: 400px; padding: 60px 80px; }
+}
+
+@media (max-width: 768px) {
+  .nav-style { width: 90%; }
+  .book-item, .member-item { flex: 1 1 100%; max-width: 100%; }
+  .header h1 { font-size: 45px; margin-top: 60px; }
+  .desc { width: 90%; }
+}
+
+@media (max-width: 480px) {
+  .header h1 { font-size: 35px; }
+  .circle { width: 300px; height: 300px; padding: 40px 50px; }
+  .login-container { width: 90%; padding: 25px; }
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login | Kabul University Library</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    /* سبک ساده برای اینکه با style اصلی تداخل نکند */
+    body{font-family:Arial,Helvetica,sans-serif;background:#141428;color:#fff;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
+    .box{background:#22223b;padding:28px;border-radius:10px;width:360px;box-shadow:0 6px 30px rgba(0,0,0,0.6)}
+    h2{color:#ffc107;margin:0 0 14px;font-size:20px;text-align:center}
+    .form-row{margin-bottom:10px}
+    input,select,button{width:100%;padding:10px;border-radius:6px;border:0;background:#3b3b56;color:#fff;box-sizing:border-box}
+    input:focus,select:focus{outline:2px solid rgba(255,193,7,0.25)}
+    button{cursor:pointer;background:#ffc107;color:#111;font-weight:600;border:none}
+    .link{color:#ffd761;text-align:center;display:block;margin-top:10px;text-decoration:none}
+    .small{font-size:13px;color:#ccc;text-align:center;margin-top:8px}
+    .hidden{display:none}
+    @media(max-width:400px){ .box{width:92%} }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Kabul University Library — Login / Register</h2>
+
+  <!-- LOGIN -->
+  <div id="loginArea">
+    <div class="form-row">
+      <input type="text" id="username" placeholder="Username" />
+    </div>
+    <div class="form-row">
+      <input type="password" id="password" placeholder="Password" />
+    </div>
+    <div class="form-row">
+      <select id="role">
+        <option value="">Select role</option>
+        <option value="admin">Admin</option>
+        <option value="staff">Staff</option>
+        <option value="student">Student</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <button onclick="login()">Login</button>
+    </div>
+    <a href="#" class="link" onclick="showRegister()">Don't have an account? Register</a>
+    <p class="small">Tip: default admin credentials listed below.</p>
+   
+  </div>
+
+  <!-- REGISTER -->
+  <div id="registerArea" class="hidden">
+    <div class="form-row">
+      <input type="text" id="newUsername" placeholder="Create username" />
+    </div>
+    <div class="form-row">
+      <input type="password" id="newPassword" placeholder="Create password" />
+    </div>
+    <div class="form-row">
+      <select id="newRole">
+        <option value="">Select role</option>
+        <option value="student">Student</option>
+        <option value="staff">Staff</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <button onclick="registerUser()">Register</button>
+    </div>
+    <a href="#" class="link" onclick="showLogin()">Already have an account? Login</a>
+  </div>
+</div>
+
+<script>
+/*
+ Behavior:
+ - A built-in admin account exists:
+    username: Jaweidmo
+    password: ja1234
+    role: admin
+ - Register saves student/staff accounts into localStorage (key: users)
+ - Login checks:
+    1) if admin default -> success
+    2) else checks localStorage users array for matching username/password/role
+ - On success -> redirect to: http://localhost/LibraryMS/index.php
+*/
+
+// Ensure users array exists and contains default admin
+function ensureDefaultAdmin(){
+  const raw = localStorage.getItem('users');
+  let users = raw ? JSON.parse(raw) : [];
+  // check if admin already present in localStorage list (just in case)
+  const adminExists = users.some(u => u.username === 'Jaweidmo' && u.role === 'admin');
+  if (!adminExists) {
+    // we keep admin only as built-in (you may also store it)
+    // but for convenience, store it too (hashed not implemented in localStorage)
+    users.push({ username: 'Jaweidmo', password: 'ja1234', role: 'admin' });
+    localStorage.setItem('users', JSON.stringify(users));
+  }
+}
+ensureDefaultAdmin();
+
+function showRegister(){
+  document.getElementById('loginArea').classList.add('hidden');
+  document.getElementById('registerArea').classList.remove('hidden');
+}
+function showLogin(){
+  document.getElementById('registerArea').classList.add('hidden');
+  document.getElementById('loginArea').classList.remove('hidden');
+}
+
+function registerUser(){
+  const u = document.getElementById('newUsername').value.trim();
+  const p = document.getElementById('newPassword').value;
+  const r = document.getElementById('newRole').value;
+
+  if(!u || !p || !r){ alert('Please fill all fields.'); return; }
+  if (r === 'admin'){ alert('Cannot register as admin here.'); return; }
+
+  const users = JSON.parse(localStorage.getItem('users')||'[]');
+  if(users.find(x=>x.username.toLowerCase()===u.toLowerCase())){
+    alert('Username already exists. Choose another.');
+    return;
+  }
+  users.push({ username: u, password: p, role: r });
+  localStorage.setItem('users', JSON.stringify(users));
+  alert('Registered successfully. You can now login.');
+  // prefill login and show login
+  document.getElementById('username').value = u;
+  showLogin();
+}
+
+function login(){
+  const u = document.getElementById('username').value.trim();
+  const p = document.getElementById('password').value;
+  const r = document.getElementById('role').value;
+
+  if(!u || !p || !r){ alert('Please enter username, password and choose role.'); return; }
+
+  const users = JSON.parse(localStorage.getItem('users')||'[]');
+
+  // Check exact match in stored users (case-sensitive for password, case-insensitive for username)
+  const matched = users.find(x => x.username.toLowerCase() === u.toLowerCase() && x.password === p && x.role === r);
+
+  if(matched){
+    // save current user session in localStorage
+    localStorage.setItem('currentUser', JSON.stringify(matched));
+    alert('Login successful. Redirecting...');
+    window.location.href = 'http://localhost/LibraryMS/index.php';
+    return;
+  }
+
+  // fallback: also accept built-in admin credential even if not stored (for safety)
+  if(u === 'Jaweidmo' && p === 'ja1234' && r === 'admin'){
+    localStorage.setItem('currentUser', JSON.stringify({ username:'Jaweidmo', role:'admin' }));
+    alert('Admin login successful. Redirecting...');
+    window.location.href = 'http://localhost/LibraryMS/index.php';
+    return;
+  }
+
+  alert('Invalid username, password or role.');
+}
+</script>
+
+</body>
+</html>
