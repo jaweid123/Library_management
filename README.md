@@ -207,14 +207,17 @@ Please open an issue to discuss improvements or bugs.
 
 This project is licensed under the **MIT License**.
 
+ 
 ---
+### 👤 Author & Final Note
+This project was created by 
+**Jaweid Moraadi** 
+#Murtaza #Hussini** 
+ISE Department, ICT Faculty – Kabul University.
 
-If you want, I can also:
-✅ Add **SQL scripts**
-✅ Create a **logo banner**
-✅ Generate a **GitHub description**, tags, and topics
-✅ Format this README in a **canvas** so you can edit it easily
+Developed under the guidance of **Prof. Garani**.  
+Special thanks for the support, supervision, and valuable insights provided throughout the project.
 
-Just tell me!
+
 
 
