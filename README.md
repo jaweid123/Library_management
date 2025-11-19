@@ -30,15 +30,7 @@ This project was developed as part of an academic assignment to model and presen
 
 
 
-## 👨‍💻 Authors
 
-This project was created by:
-
-- **Murtaza Hussaini**
-- **Jawied Moraadi**
-
-Students of the **Faculty of Information communication and Technology**,  
-**Kabul University**
 
 
 ---
@@ -209,11 +201,15 @@ This project is licensed under the **MIT License**.
 
  
 ---
-### 👤 Author & Final Note
-This project was created by 
-**Jaweid Moraadi** 
-#Murtaza #Hussini** 
-ISE Department, ICT Faculty – Kabul University.
+## 👨‍💻 Authors
+
+This project was created by:
+
+- **Murtaza Hussaini**
+- **Jawied Moraadi**
+
+Students of the **Faculty of Information communication and Technology**,  
+**Kabul University**
 
 Developed under the guidance of **Prof. Garani**.  
 Special thanks for the support, supervision, and valuable insights provided throughout the project.
