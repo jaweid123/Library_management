@@ -28,6 +28,7 @@ This project was developed as part of an academic assignment to model and presen
 
 ![Library Management System Diagram]![aq2 drawio]![Photo of Diagram](<img width="1319" height="768" alt="Screenshot 2025-09-15 224455" src="https://github.com/user-attachments/assets/f371c5c3-4687-4f4d-9b39-8da0c8ac85b3" />
 )
+<img width="1319" height="768" alt="Screenshot 2025-09-15 224455" src="https://github.com/user-attachments/assets/a7b2f7c4-4737-432f-b8ce-6c167d7839af" />
 
 
 
