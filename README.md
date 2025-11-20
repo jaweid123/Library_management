@@ -152,7 +152,7 @@ This system allows users to manage books, members, loans, returns, and administr
 4. Move folder to `/htdocs` or `/www`
 5. Start Apache & SQL Server
 6. Open in browser:
-
+"C:\Users\Jaweid\Documents\Bandicam\bandicam 2025-11-20 10-41-51-557.mp4"
    ```
    http://localhost/library-management-system/
    ```
