@@ -213,7 +213,7 @@ This project was created by:
 Students of the **Faculty of Information communication and Technology**,  
 **Kabul University**
 
-Developed under the guidance of **Prof. Garani**.  
+Developed under the guidance of **Prof. Gharani**.  
 Special thanks for the support, supervision, and valuable insights provided throughout the project.
 
 
